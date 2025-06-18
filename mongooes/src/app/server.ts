@@ -4,7 +4,7 @@ import app from "./app";
 
 let server:Server;
  
-const dataBaseUrl="mongodb+srv://monogdb:monogdb@cluster0.0nilmbf.mongodb.net/NoteApp?retryWrites=true&w=majority&appName=Cluster0";
+const dataBaseUrl="mongodb://localhost:27017/";
 
 async function main(){
     try{

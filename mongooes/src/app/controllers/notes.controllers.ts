@@ -8,6 +8,7 @@ notesRouter.post("/create-note",async(req:Request,res:Response)=>{
     const body=req.body
    
     const myNote=await Note.create(body);
+    
      res.status(201).send(
          {
              success:true,

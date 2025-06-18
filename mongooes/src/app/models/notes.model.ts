@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
+import Notes from "../interfaces/note.interface";
 
-const NoteSchema=new Schema({
+const NoteSchema=new Schema<Notes>({
     title:{type:String,require,trim:true},
     content:{type:String,default:"No content available"},
     category:{
@@ -16,15 +17,18 @@ const NoteSchema=new Schema({
 
     tags:{
         label:{
-          type:String, require:true
+          type:String, required:true
         },
         color:{
             type:String,
             default:"gray", 
-            require:true
+            required:true
         }
     }
  },
+
+
+
  {
     versionKey:false,
     timestamps:true
