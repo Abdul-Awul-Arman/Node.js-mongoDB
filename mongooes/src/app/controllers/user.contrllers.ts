@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express"
+import express, { Request, Response } from "express";
 import { User } from "../models/user.modle";
 
 const userRouter=express.Router();
@@ -18,7 +18,16 @@ userRouter.get("/",async(req:Request,res:Response)=>{
 
 userRouter.post("/create-user",async(req:Request,res:Response)=>{
     const body=req.body;
-    const user= await User.create(body);
+    let user;
+    try{
+    user= await User.create(body);
+        
+    }catch(error){
+      res.send({
+        success:false,
+        message:error
+      })
+    }
     
     res.status(201).send({
         success:true,
