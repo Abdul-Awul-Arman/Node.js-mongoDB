@@ -1,7 +1,21 @@
 import express, { Request, Response } from "express";
-import { User } from "../models/user.modle";
+import { z } from "zod";
+import { User } from '../models/user.model';
 
 const userRouter=express.Router();
+
+    const userZodSchema=z.object({
+        firstName:z.string(),
+        lastName:z.string(),
+        email:z.string(),
+        password:z.string(),
+        role:z.string(),
+        age:z.number(),
+       
+    })
+
+
+
 
 userRouter.get("/",async(req:Request,res:Response)=>{
     const users= await User.find();
@@ -17,9 +31,11 @@ userRouter.get("/",async(req:Request,res:Response)=>{
 })
 
 userRouter.post("/create-user",async(req:Request,res:Response)=>{
-    const body=req.body;
+    
     let user;
     try{
+        // const body=await userZodSchema.parseAsync(req.body);
+        const body=req.body
     user= await User.create(body);
         
     }catch(error){

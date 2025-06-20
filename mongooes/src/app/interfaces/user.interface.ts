@@ -1,10 +1,18 @@
-interface Iuser{
+
+export interface Iaddress{
+ 
+        city:string,
+        street:string,
+        zip:number
+    
+}
+export interface Iuser{
     firstName:string,
     lastName:string,
     email:string,
     password:string ,
     role: 'user'|'admin',
-    age:number
+    age:number,
+    address:Iaddress
 }
 
-export default Iuser

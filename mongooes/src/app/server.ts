@@ -4,7 +4,7 @@ import app from "./app";
 
 let server:Server;
  
-const dataBaseUrl="mongodb://localhost:27017/";
+const dataBaseUrl="mongodb://localhost:27017/usersDB";
 
 async function main(){
     try{
