@@ -1,5 +1,6 @@
 import { model, Schema } from "mongoose";
 import Notes from "../interfaces/note.interface";
+import { string } from "zod";
 
 const NoteSchema=new Schema<Notes>({
     title:{type:String,require,trim:true},
@@ -24,8 +25,10 @@ const NoteSchema=new Schema<Notes>({
             default:"gray", 
             required:true
         }
-    }
+    },
+    userId:{type:Schema.Types.ObjectId,ref:"User",required:true}
  },
+
 
 
 

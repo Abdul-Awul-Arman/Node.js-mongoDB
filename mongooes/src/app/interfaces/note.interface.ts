@@ -1,3 +1,5 @@
+import { Types } from "mongoose"
+
 interface Notes{
     title:string,
     content:string,
@@ -6,7 +8,8 @@ interface Notes{
     tags:{
         label:string,
         color:string
-    }
+    },
+    userId:Types.ObjectId
   }
 
 export default Notes

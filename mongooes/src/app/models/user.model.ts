@@ -9,6 +9,9 @@ const addressSchema=new Schema<Iaddress>(
         street:{type:String},
 
 
+    },
+    {
+        _id:false
     }
 )
 
@@ -33,7 +36,8 @@ const userSchema=new Schema<Iuser>(
         role:{type:String,enum:{values:["admin","user","superAdmin"],message:"The user is not match the roll need got {VALUE}"},default:"user"},
         age:{type:Number,required:[true,"Age is must please fill up the field "],min:[18,"AGE MUST BE EQUAL OR GRATER"],max:60},
         
-        address:{type:addressSchema}
+        address:{type:addressSchema},
+     
     },
     {
         timestamps:true,
@@ -41,4 +45,4 @@ const userSchema=new Schema<Iuser>(
     }
 );
 
-export const User=model("user",userSchema);
+export const User=model("User",userSchema);
